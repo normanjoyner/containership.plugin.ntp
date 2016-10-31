@@ -3,7 +3,8 @@ var _ = require('lodash');
 var request = require('request');
 
 module.exports = new ContainershipPlugin({
-    name: 'tide',
+    name: 'ntp',
+    type: 'core',
 
     initialize: function(core) {
         var applicationName = 'ntpd';
@@ -23,6 +24,10 @@ module.exports = new ContainershipPlugin({
                     tags: {
                         constraints: {
                             per_host: 1
+                        },
+                        metadata: {
+                            plugin: applicationName,
+                            ancestry: 'containership.plugin'
                         }
                     },
                 }
