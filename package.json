@@ -23,5 +23,6 @@
   "bugs": {
     "url": "https://github.com/containership/containership.plugin.ntp/issues"
   },
-  "homepage": "https://github.com/containership/containership.plugin.ntp"
+  "homepage": "https://github.com/containership/containership.plugin.ntp",
+  "private": true
 }
