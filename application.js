@@ -15,30 +15,34 @@ module.exports = new ContainershipPlugin({
 
             core.cluster.myriad.persistence.get(key, (err) => {
                 if(err) {
-                    core.applications.add({
-                        id: applicationName,
-                        image: 'jeremykross/ntp:latest',
-                        cpus: 0.1,
-                        memory: 16,
-                        privileged: true,
-                        tags: {
-                            constraints: {
-                                per_host: 1
+                    if(err.name === core.constants.myriad.ENOKEY) {
+                        core.applications.add({
+                            id: applicationName,
+                            image: 'containership/ntp:latest',
+                            cpus: 0.1,
+                            memory: 16,
+                            privileged: true,
+                            tags: {
+                                constraints: {
+                                    per_host: 1
+                                },
+                                metadata: {
+                                    plugin: applicationName,
+                                    ancestry: 'containership.plugin'
+                                }
                             },
-                            metadata: {
-                                plugin: applicationName,
-                                ancestry: 'containership.plugin'
+                        }, (err) => {
+                            if(!err) {
+                                core.loggers[applicationName].log('verbose', `Created ${applicationName}!`);
+                            } else {
+                                core.loggers[applicationName].log('error', `Couldnt create ${applicationName}: ${err}`);
                             }
-                        },
-                    }, (err) => {
-                        if(!err) {
-                            core.loggers[applicationName].log('verbose', `Created ${applicationName}!`);
-                        } else {
-                            core.loggers[applicationName].log('verbose', `Couldn't create ${applicationName}: ${JSON.stringify(err)}`);
-                        }
-                    });
+                        });
+                    } else {
+                        core.loggers[applicationName].log('verbose', `${applicationName} already exists, skipping create!`);
+                    }
                 } else {
-                    core.loggers[applicationName].log('verbose', `${applicationName} already exists, skipping create!`);
+                        core.loggers[applicationName].log('error', `Unexpected error accessing myriad when loading ${applicationName}: ${err}`);
                 }
             });
         };

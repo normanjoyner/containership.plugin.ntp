@@ -13,6 +13,9 @@
     "lodash": "^3.3.1",
     "request": "^2.75.0"
   },
+  "devDependencies": {
+      "mocha":"^2.4.5"
+  },
   "keywords": [
     "containership"
   ],
