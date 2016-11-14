@@ -10,11 +10,10 @@
   "license": "GPL-3.0",
   "dependencies": {
     "containership.plugin": "^0.3.0",
-    "lodash": "^3.3.1",
-    "request": "^2.75.0"
+    "lodash": "^3.3.1"
   },
   "devDependencies": {
-      "mocha":"^2.4.5"
+    "mocha": "^2.4.5"
   },
   "keywords": [
     "containership"

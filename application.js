@@ -1,13 +1,14 @@
-var ContainershipPlugin = require('containership.plugin');
-var _ = require('lodash');
-var request = require('request');
+'use strict';
+
+const _ = require('lodash');
+const ContainershipPlugin = require('containership.plugin');
 
 module.exports = new ContainershipPlugin({
     name: 'ntp',
     type: 'core',
 
     initialize: function(core) {
-        var applicationName = 'ntpd';
+        const applicationName = 'ntpd';
         core.logger.register(applicationName);
 
         const addApplication = () => {
