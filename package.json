@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@containership/containership.plugin": "git://github.com/containership/containership.plugin#v2",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.4"
   },
   "author": "",
   "license": "ISC"
