@@ -1,5 +1,5 @@
 {
-  "name": "containership.plugin.ntp.v2",
+  "name": "containership.plugin.ntp",
   "version": "1.0.3",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,6 @@
   "dependencies": {
     "@containership/containership.plugin": "git://github.com/containership/containership.plugin#v2",
     "lodash": "^4.17.4",
-    "request": "^2.81.0"
   },
   "author": "",
   "license": "ISC"
