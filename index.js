@@ -1,3 +1,4 @@
 const ContainershipNtpPlugin = require('./lib/plugin');
 
-module.exports = ContainershipNtpPlugin;
+module.exports = 
+    new ContainershipNtpPlugin();
